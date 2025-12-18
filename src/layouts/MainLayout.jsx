@@ -5,7 +5,7 @@ import Header from "../components/Header";
 const MainLayout = () => {
   return (
     <div>
-      <header>
+      <header className="mb-8">
         <Header></Header>
       </header>
       <main>
