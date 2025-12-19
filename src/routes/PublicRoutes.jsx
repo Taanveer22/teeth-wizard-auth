@@ -12,10 +12,27 @@ const PublicRoutes = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     errorElement: <NotFound></NotFound>,
     children: [
-      { index: true, element: <Home></Home> },
+      {
+        index: true,
+        element: <Home></Home>,
+        loader: async () => {
+          const serviceResponse = await fetch("/service.json");
+          const serviceData = await serviceResponse.json();
+
+          const feedbackResponse = await fetch("/happyclients.json");
+          const feedbackData = await feedbackResponse.json();
+
+          return { serviceData, feedbackData };
+        },
+      },
       {
         path: "/treatments",
         element: <Treatments></Treatments>,
+        loader: async () => {
+          const serviceResponse = await fetch("/service.json");
+          const serviceData = await serviceResponse.json();
+          return serviceData;
+        },
       },
       {
         path: "/appointments",
