@@ -1,6 +1,8 @@
+import { Link } from "react-router";
+
 const Card = ({ serviceItem }) => {
   // console.log(serviceItem);
-  const { treatment, image, description, cost } = serviceItem;
+  const { treatment, image, description, cost, id } = serviceItem;
   return (
     <div>
       <div className="card bg-base-100 shadow-sm h-80">
@@ -14,7 +16,9 @@ const Card = ({ serviceItem }) => {
           </h2>
           <p className="text-justify">{description.slice(0, 80)}...</p>
           <div className="card-actions justify-center">
-            <button className="btn btn-accent">Checkout More</button>
+            <button className="btn btn-accent">
+              <Link to={`/cardDetail/${id}`}>Checkout More</Link>
+            </button>
           </div>
         </div>
       </div>
