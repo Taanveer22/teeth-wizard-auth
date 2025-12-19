@@ -6,6 +6,8 @@ import Appointments from "../components/Appointments";
 import Profile from "../components/Profile";
 import Home from "../components/Home";
 import CardDetail from "../components/CardDetail";
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -52,6 +54,14 @@ const PublicRoutes = createBrowserRouter([
           const oneData = allData.find((item) => item.id == params.id);
           return oneData;
         },
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },

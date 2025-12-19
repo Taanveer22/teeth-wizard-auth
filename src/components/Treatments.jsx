@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Treatments = () => {
   const loaderData = useLoaderData();
-  console.log(loaderData);
+  // console.log(loaderData);
   return (
     <div className="w-11/12 mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">

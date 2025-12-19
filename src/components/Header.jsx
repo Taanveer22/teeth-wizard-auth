@@ -39,7 +39,9 @@ const Header = () => {
             Profile
           </NavLink>
         </div>
-        <button className="btn btn-primary">Login</button>
+        <button className="btn btn-primary">
+          <NavLink to="/login">Login</NavLink>
+        </button>
       </div>
     </div>
   );
