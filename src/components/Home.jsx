@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router";
+import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import Feedback from "./Feedback";
 import Services from "./Services";

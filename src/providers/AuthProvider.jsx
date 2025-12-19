@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 import {
   createUserWithEmailAndPassword,
@@ -7,12 +7,15 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 // Declare outside and export so others can use useContext(AuthContext)
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
     return signInWithPopup(auth, googleProvider);
@@ -30,11 +33,26 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) =>
-      console.log(currentUser)
-    );
+  const handleUpdateProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
 
+  useEffect(() => {
+    // Subscribe to auth state changes
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+      // Usually, you would set state here, e.g., setUser(currentUser);
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
+    });
+
+    // Return the unsubscribe function for cleanup
     return () => {
       unSubscribe();
     };
@@ -45,6 +63,9 @@ const AuthProvider = ({ children }) => {
     handleRegister,
     handleLogin,
     handleLogout,
+    handleUpdateProfile,
+    user,
+    setUser,
   };
 
   return <AuthContext value={authInfo}>{children}</AuthContext>;

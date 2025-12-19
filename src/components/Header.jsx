@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -39,9 +39,11 @@ const Header = () => {
             Profile
           </NavLink>
         </div>
-        <button className="btn btn-primary">
-          <NavLink to="/login">Login</NavLink>
-        </button>
+        <div>
+          <Link className="btn btn-primary" to="/login">
+            Login
+          </Link>
+        </div>
       </div>
     </div>
   );
