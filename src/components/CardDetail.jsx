@@ -31,7 +31,7 @@ const CardDetail = () => {
           </div>
         </div>
       </div>
-      <Modal></Modal>
+      <Modal treatment={treatment}></Modal>
     </div>
   );
 };

@@ -40,11 +40,19 @@ const PublicRoutes = createBrowserRouter([
       },
       {
         path: "/appointments",
-        element: <Appointments></Appointments>,
+        element: (
+          <PrivateRoutes>
+            <Appointments></Appointments>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRoutes>
+            <Profile></Profile>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/cardDetail/:id",

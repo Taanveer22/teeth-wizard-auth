@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Header = () => {
+  const { user, handleLogout } = useContext(AuthContext);
+  // console.log("from header", user?.photoURL);
+  const handleLogoutClick = () => {
+    handleLogout()
+      .then(() => {
+        console.log("log out successful");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="bg-gray-400 py-3">
       <div className="flex flex-col sm:flex-row items-center justify-between mx-6">
@@ -40,9 +53,18 @@ const Header = () => {
           </NavLink>
         </div>
         <div>
-          <Link className="btn btn-primary" to="/login">
-            Login
-          </Link>
+          {user?.displayName ? (
+            <div className="flex gap-2 items-center">
+              <p>{user?.displayName}</p>
+              <button onClick={handleLogoutClick} className="btn btn-error">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link className="btn btn-primary" to="/login">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

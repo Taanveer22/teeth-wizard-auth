@@ -8,7 +8,7 @@ const Login = () => {
   const [successText, setSuccessText] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+  // console.log(location);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
