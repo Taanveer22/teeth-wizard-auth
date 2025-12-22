@@ -8,6 +8,7 @@ import Home from "../components/Home";
 import CardDetail from "../components/CardDetail";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -47,7 +48,11 @@ const PublicRoutes = createBrowserRouter([
       },
       {
         path: "/cardDetail/:id",
-        element: <CardDetail></CardDetail>,
+        element: (
+          <PrivateRoutes>
+            <CardDetail></CardDetail>
+          </PrivateRoutes>
+        ),
         loader: async ({ params }) => {
           const res = await fetch("/service.json");
           const allData = await res.json();

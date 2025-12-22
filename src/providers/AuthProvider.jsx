@@ -15,25 +15,31 @@ const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   const handleRegister = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const handleLogin = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const handleLogout = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   const handleUpdateProfile = (name, photo) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -43,13 +49,15 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Subscribe to auth state changes
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
+      console.log("auth state change user", currentUser);
       // Usually, you would set state here, e.g., setUser(currentUser);
       if (currentUser) {
         setUser(currentUser);
       } else {
         setUser(null);
       }
+      // after get the user set loading value to false
+      setLoading(false);
     });
 
     // Return the unsubscribe function for cleanup
@@ -66,6 +74,7 @@ const AuthProvider = ({ children }) => {
     handleUpdateProfile,
     user,
     setUser,
+    loading,
   };
 
   return <AuthContext value={authInfo}>{children}</AuthContext>;
