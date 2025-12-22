@@ -10,12 +10,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 
+
 // Declare outside and export so others can use useContext(AuthContext)
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  
 
   const googleProvider = new GoogleAuthProvider();
   const handleGoogleSignIn = () => {
