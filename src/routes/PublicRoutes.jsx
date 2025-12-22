@@ -3,7 +3,6 @@ import MainLayout from "../layouts/MainLayout";
 import NotFound from "../components/NotFound";
 import Treatments from "../components/Treatments";
 import Appointments from "../components/Appointments";
-import Profile from "../components/Profile";
 import Home from "../components/Home";
 import CardDetail from "../components/CardDetail";
 import Login from "../components/Login";
@@ -43,14 +42,6 @@ const PublicRoutes = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <Appointments></Appointments>
-          </PrivateRoutes>
-        ),
-      },
-      {
-        path: "/profile",
-        element: (
-          <PrivateRoutes>
-            <Profile></Profile>
           </PrivateRoutes>
         ),
       },

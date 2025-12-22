@@ -8,10 +8,10 @@ const Header = () => {
   const handleLogoutClick = () => {
     handleLogout()
       .then(() => {
-        console.log("log out successful");
+        alert("log out successful");
       })
       .catch((error) => {
-        console.log(error.message);
+        alert(error.message);
       });
   };
   return (
@@ -42,14 +42,6 @@ const Header = () => {
             }
           >
             Appointments
-          </NavLink>
-          <NavLink
-            to="/profile"
-            className={({ isActive }) =>
-              isActive ? "bg-green-500 p-2" : "bg-gray-400 p-2"
-            }
-          >
-            Profile
           </NavLink>
         </div>
         <div>

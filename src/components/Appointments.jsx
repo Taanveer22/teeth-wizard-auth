@@ -17,13 +17,14 @@ const Appointments = () => {
     updateData();
   }, [user?.email]);
 
-  console.log(storedAppointments);
+  // console.log(storedAppointments);
 
   return (
-    <div>
-      <h1>hi{storedAppointments.length}</h1>
-
-      <div className="grid grid-cols-1 gap-6">
+    <div className="w-11/12 mx-auto mb-8">
+      <h1 className="text-2xl font-medium text-center mb-4">
+        Total Appointment Booked : {storedAppointments.length}
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {storedAppointments.map((element, index) => (
           <Profile key={index} element={element}></Profile>
         ))}
