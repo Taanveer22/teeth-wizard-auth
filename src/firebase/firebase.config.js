@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAUWHg257xaIy9JP9Exagg_-v2pYqa8DO8",
-  authDomain: "teeth-wizard-auth-ead34.firebaseapp.com",
-  projectId: "teeth-wizard-auth-ead34",
-  storageBucket: "teeth-wizard-auth-ead34.firebasestorage.app",
-  messagingSenderId: "247133074178",
-  appId: "1:247133074178:web:97fa8bebc1e846e0eac81b",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
