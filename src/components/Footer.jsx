@@ -1,13 +1,9 @@
 const Footer = () => {
   return (
     <div>
-      <footer className="footer sm:footer-horizontal footer-center bg-gray-400 text-base-content p-4">
-        <aside>
-          <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by ACME
-            Industries Ltd
-          </p>
-        </aside>
+      <footer className="text-center text-xs bg-gray-400 text-black py-2 mt-10">
+        © 2025 Teeth Wizard — Demo Project <br />
+        Contact: support@teethwizard.app
       </footer>
     </div>
   );

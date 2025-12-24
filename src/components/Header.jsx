@@ -43,6 +43,14 @@ const Header = () => {
           >
             Appointments
           </NavLink>
+          <NavLink
+            to="/privacy"
+            className={({ isActive }) =>
+              isActive ? "bg-green-500 p-2" : "bg-gray-400 p-2"
+            }
+          >
+            Privacy
+          </NavLink>
         </div>
         <div>
           {user?.displayName ? (

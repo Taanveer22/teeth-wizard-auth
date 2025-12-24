@@ -8,6 +8,7 @@ import CardDetail from "../components/CardDetail";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import Privacy from "../components/Privacy";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const PublicRoutes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/privacy",
+        element: <Privacy></Privacy>,
       },
     ],
   },

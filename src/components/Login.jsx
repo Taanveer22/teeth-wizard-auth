@@ -45,8 +45,21 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center">
       <div>
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold">Teeth Wizard</h1>
+          <p className="text-gray-500 mt-2">
+            A demo dental appointment booking application built for learning
+            purposes.
+          </p>
+          <p className="text-sm text-center mt-4">
+            By signing in, you agree to our {" "}
+            <Link to="/privacy" className="text-blue-500 underline">
+              Privacy Policy
+            </Link>
+          </p>
+        </div>
+
         <form onSubmit={handleLoginSubmit}>
-          <h1 className="text-3xl font-semibold text-center mb-3">Login Now</h1>
           <fieldset className="fieldset bg-base-300 border-base-300 rounded-box w-xs border p-4">
             <label className="label">Email</label>
             <input
@@ -73,7 +86,7 @@ const Login = () => {
         {successText && (
           <p className="text-green-500 font-medium">{successText}</p>
         )}
-        <div className="flex justify-center items-center mt-4">
+        <div className="flex justify-start mt-4">
           <button onClick={handleGoogleClick} className="btn btn-warning">
             Sign in with google
           </button>
