@@ -44,13 +44,9 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Subscribe to auth state changes
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // console.log("auth state change user", currentUser);
-      // Usually, you would set state here, e.g., setUser(currentUser);
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        setUser(null);
-      }
+      // If currentUser exists, it sets user
+      //  if not exists, it sets null
+      setUser(currentUser);
       // after get the user set loading value to false
       setLoading(false);
     });
